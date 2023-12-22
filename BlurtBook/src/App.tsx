@@ -12,10 +12,10 @@ function App() {
     <div className="App">
       <h1>BlurtBook</h1>
       
-      <div>
-        {/* <a href="https://vitejs.dev" target="_blank">
+      {/* <div>
+        <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a> */}
+        </a>
 
        <a href="/Test.tsx" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -24,7 +24,7 @@ function App() {
         <a href="https://reactjs.org" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-      </div>
+      </div> */}
 
       {/* <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
@@ -33,15 +33,6 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-      </div> */}
-
-      {/* <div>
-        <form>
-          <label className="card">Text Input</label>
-          <input type = "text">
-            Please type your notes here
-          </input>
-        </form>
       </div> */}
 
       {/* <p className="read-the-docs">

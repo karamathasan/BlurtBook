@@ -5,6 +5,8 @@ import Input from './Input'
 import Note from './Note'
 import './index.css'
 import Toggle from './Toggle'
+//cd BlurtBook
+//npm run dev
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
