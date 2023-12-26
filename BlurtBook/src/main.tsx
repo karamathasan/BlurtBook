@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import Input from './Input'
-import Note from './Note'
 import './index.css'
 import Toggle from './Toggle'
+import Navbar from './Navbar'
 //cd BlurtBook
-//npm run dev
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <Navbar />
     <Input />
   </React.StrictMode>,
 )

@@ -17,9 +17,6 @@ function Toggle(prop: any){
         }
     }
     //define how to change the toggle
-
-    // let toggle = "true";
-
     return (
         <>
         <button onClick={changeToggle}>

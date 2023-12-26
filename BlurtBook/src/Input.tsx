@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+
 import Toggle from './Toggle';
 
 function Input() {
@@ -16,7 +17,7 @@ function Input() {
 
   return (
     <div>
-      <form onSubmit={Submit}>
+      <form className='textfield' onSubmit={Submit}>
         <input type = 'text' onChange={(e) => PsetText(e.target.value)}></input>
         <input type = 'submit' onClick={() => setText(Ptext)}></input>
       </form>      

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import TextField from 'react'
 import Note from './Note'
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>BlurtBook</h1>
+      {/* <h1>BlurtBook</h1> */}
       
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
