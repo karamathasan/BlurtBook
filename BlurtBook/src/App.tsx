@@ -1,44 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import Note from './Note'
+import Navbar from './Navbar'
+import Home from './pages/Home'
+import Your_Notes from './pages/Your_Notes'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-
+  let component 
+  switch(window.location.pathname){
+    case "/":
+      component = <Home/>
+      break
+    case "/Your_Notes":
+      component = <Your_Notes/>
+      break
+    
+  }
   return (
-    <div className="App">
-      {/* <h1>BlurtBook</h1> */}
-      
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-
-       <a href="/Test.tsx" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> */}
-
-      {/* <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div> */}
-
-      {/* <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-      
-    </div>
+    <>
+    <Navbar></Navbar>
+    {component}
+    </>
   )
 }
 
