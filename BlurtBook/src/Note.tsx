@@ -1,15 +1,19 @@
-import { useState } from "react";
+import "./Note.css"
+export default function Note(prop: any){
+    return(
+        <>
+        <div className = "note">
+            <ul>
+                <li> <a href = {"/Your_Notes/" + prop.name}> {prop.name} </a> </li>
+                <li> {prop.date} </li>
 
-function Note(prop: any){
-    if (prop.active =="true"){
-        return (
-            <div>
-                {prop.text}
-            </div>
-        );
-    }
-    else if (prop.active == "false"){
-    }
+            </ul>
+        </div>
+        <br></br>
+
+        {/* <button className = "note" onClick={}>
+            {prop.text}
+        </button> */}
+        </>
+    )
 }
-
-export default Note;

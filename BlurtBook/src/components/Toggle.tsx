@@ -1,6 +1,5 @@
 import { useState } from "react";
-import App from "./App";
-import Note from "./Note";
+import InputText from "./InputText";
 
 function Toggle(prop: any){
     const [toggle, setToggle] = useState("false");
@@ -23,7 +22,7 @@ function Toggle(prop: any){
             {displayText}
         </button>
         
-        <Note active = {toggle} text = {prop.text}></Note>
+        <InputText active = {toggle} text = {prop.text}></InputText>
         </>
     );
 }

@@ -1,0 +1,16 @@
+.note{
+    background-color: #1a1a1a;
+    border-radius: 0.5em;
+    padding: 0 1rem
+}
+.note ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+.note a{
+    text-decoration: none;
+    color: #646cff;
+}

@@ -1,5 +1,5 @@
+// import "./src/styles/Navbar.css"
 import "./Navbar.css"
-import "./App.css"
 
 function Navbar(){
     return(
@@ -9,7 +9,7 @@ function Navbar(){
                     <a href = "/"> BlurtBook</a>
                 </h1>
                 <ul>
-                    <li> <a href="Your_Notes"> Your Notes</a></li>
+                    <li> <a href="/Your_Notes"> Your Notes</a></li>
                     {/* <li> <a href=""> Page 2</a> </li> */}
                     {/* <li> <a href=""> Page 3</a> </li> */}
                 </ul>

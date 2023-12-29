@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './Navbar'
+import './components/App.css'
+import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home'
 import Your_Notes from './pages/Your_Notes'
+
+//API_KEY: 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
 
 function App() {
   let component 
@@ -13,8 +14,11 @@ function App() {
     case "/Your_Notes":
       component = <Your_Notes/>
       break
+    // case "/Your_Notes/" + : 
+    
     
   }
+  // if (window.location.pathname.includes(encodeURI()))
   return (
     <>
     <Navbar></Navbar>
