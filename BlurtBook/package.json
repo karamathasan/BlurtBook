@@ -1,6 +1,6 @@
 {
   "name": "blurtbook",
-  "proxy": "https://5000",
+  "proxy": "https://localhost:3000",
   "private": true,
   "version": "0.0.0",
   "type": "module",

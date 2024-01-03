@@ -2,8 +2,7 @@ import './components/styles/App.css'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home'
 import Your_Notes from './pages/Your_Notes'
-
-//API_KEY: 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
+import Creating_new_note from './pages/Creating_new_note'
 
 function App() {
   let component 
@@ -14,8 +13,8 @@ function App() {
     case "/Your_Notes":
       component = <Your_Notes/>
       break
-    // case "/Your_Notes/" + : 
-    
+    case "/Your_Notes/creating_new_note": 
+      component = <Creating_new_note></Creating_new_note>
     
   }
   // if (window.location.pathname.includes(encodeURI()))
