@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Note from "../Note";
 import "../Note.css"
 
@@ -8,22 +8,43 @@ export default function Your_Notes(){
     const [newNoteActive, toggleNewNoteActive] = useState(false);
 
     const redirect = ()=>{
-        // window.location.href += "/creating_new_note"
-        // fetch("/users").then(res=>{console.log(res.ok)})
-        fetch("/users",{
+        fetch("http://localhost:3000",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
             },
-            body:JSON.stringify({
-                user:"user 1"
-            })
+            // body:
         }).then(res=>{
-            return res.json()
+            if (res.ok){
+                console.log(res);
+                return res.json();
+            }
+            else{
+                throw new Error("Network error");
+            }
         })
-        .then(data=> console.log(data))
-        .catch(()=>console.log("ERROR"))
+
+
+        window.location.href += "/creating_new_note"
+        fetch("/users").then(res=>{console.log(res.ok)})
+
     }
+
+    const APIcall = async ()=>{
+        try {
+            const response = await fetch('http://localhost:5173/', {mode:'cors'});
+            console.log(response);
+            const data = await response.json();
+            console.log({ data })
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+
+    // useEffect(()=>{
+    //     APIcall();
+    // }, [])
 
     return (
         <>
