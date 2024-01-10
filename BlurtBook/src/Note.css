@@ -16,6 +16,14 @@
     color: #646cff;
     font-size: 18px;
 }
+.submitHeader{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    justify-content: space-between;
+    display: flex;
+    gap: 2.5rem;
+}
 .confirm{
     background-color: #2c2c2c;
 }

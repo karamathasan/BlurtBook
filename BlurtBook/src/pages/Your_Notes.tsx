@@ -4,47 +4,52 @@ import "../Note.css"
 
 
 export default function Your_Notes(){
-    const [notes, setNotes] = useState(["AP US History Notes", "AP Micro Notes"]);
+    const [topics, setTopics] = useState(["AP US History Notes", "AP Micro Notes"]);
     const [newNoteActive, toggleNewNoteActive] = useState(false);
 
+    fetch("http:/localhost:3000/notes", {
+        method:"get",
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>{
+        if (res.ok){
+            console.log(res.type);
+            res.text();
+        }
+        else{
+            throw new Error("Network error");
+        }
+    }).then(text=>{
+        console.log(text);
+    })
+
     const redirect = ()=>{
-        fetch("http://localhost:3000",{
-            method:"post",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            // body:
-        }).then(res=>{
-            if (res.ok){
-                console.log(res);
-                return res.json();
-            }
-            else{
-                throw new Error("Network error");
-            }
-        })
+        // fetch("http://localhost:3000",{
+        //     method:"post",
+        //     headers:{
+        //         "Content-Type":"application/json"
+        //     },
+        //     body:JSON.stringify({
+        //         "message":"yes"
+        //     })
+        // })
+        // .then(res=>{
+        //     if (res.ok){
+        //         return res.text();
+        //     }
+        //     else{
+        //         throw new Error("Network error");
+        //     }
+        // }).then(text=>{
+        //     console.log(text);
+        // })
 
 
         window.location.href += "/creating_new_note"
-        fetch("/users").then(res=>{console.log(res.ok)})
+        // fetch("/users").then(res=>{console.log(res.ok)})
 
     }
-
-    const APIcall = async ()=>{
-        try {
-            const response = await fetch('http://localhost:5173/', {mode:'cors'});
-            console.log(response);
-            const data = await response.json();
-            console.log({ data })
-        }
-        catch (e) {
-            console.log(e)
-        }
-    }
-
-    // useEffect(()=>{
-    //     APIcall();
-    // }, [])
 
     return (
         <>
@@ -54,8 +59,8 @@ export default function Your_Notes(){
             <br></br>
             <br></br>
 
-            {notes.map(note => (
-                <Note name={note}></Note>
+            {topics.map(topic => (
+                <Note name={topic}></Note>
             ))}
 
         </>
