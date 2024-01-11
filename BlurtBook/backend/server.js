@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+
+const mongoose = require('mongoose');
+require('dotenv').config()
+
 const bcrypt = require('bcrypt');
 
 app.set("view engine", "ejs");
@@ -16,9 +20,20 @@ app.use(
         // origin:'*'
     })
 )
-console.log("server is running at http://localhost:" + serverNum);
 
-const users = [];
+console.log("server is running at http://localhost:" + serverNum);
+mongoose.set("strictQuery",false);
+mongoose.connect(process.env.USERS).then(()=>{
+    console.log('connected to DB');
+}).catch((error)=>{
+    console.log(error);
+});
+
+app.use(express.json());
+
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+app.listen(serverNum)
 
 app.get("/", (req,res)=>{
     res.send({"message":"yes"});
@@ -66,5 +81,3 @@ app.post("/notes", (req,res)=>{
     res.send("test");
 })
 
-
-app.listen(serverNum)
