@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import Note from "../Note";
-import "../Note.css"
+import "../components/styles/Note.css"
 
 
 export default function Your_Notes(){
     const [topics, setTopics] = useState(["AP US History Notes", "AP Micro Notes"]);
-    const [newNoteActive, toggleNewNoteActive] = useState(false);
+    //joe's id '65a13b6973f7995b127e5b4e'
+    // setTopics(users.)
 
-    fetch("http:/localhost:3000/notes", {
+    fetch("http:/localhost:3000/users", {
         method:"get",
         headers:{
             "Content-Type":"application/json"
@@ -15,7 +16,7 @@ export default function Your_Notes(){
     }).then(res=>{
         if (res.ok){
             console.log(res.type);
-            res.text();
+            // setTopics(res.body)
         }
         else{
             throw new Error("Network error");
@@ -25,30 +26,7 @@ export default function Your_Notes(){
     })
 
     const redirect = ()=>{
-        // fetch("http://localhost:3000",{
-        //     method:"post",
-        //     headers:{
-        //         "Content-Type":"application/json"
-        //     },
-        //     body:JSON.stringify({
-        //         "message":"yes"
-        //     })
-        // })
-        // .then(res=>{
-        //     if (res.ok){
-        //         return res.text();
-        //     }
-        //     else{
-        //         throw new Error("Network error");
-        //     }
-        // }).then(text=>{
-        //     console.log(text);
-        // })
-
-
         window.location.href += "/creating_new_note"
-        // fetch("/users").then(res=>{console.log(res.ok)})
-
     }
 
     return (

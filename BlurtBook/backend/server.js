@@ -5,22 +5,24 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config()
 
-const bcrypt = require('bcrypt');
+const passport = require('passport')
+const initializePassport = require('./passport-config')
+const flash = require('express-flash')
+const session = require('express-session')
 
 app.set("view engine", "ejs");
-let serverNum = 3000;
 app.use(
     cors({
         origin:[
             "http://localhost:5173",
             "http://localhost/Your_Notes:5173/",
-            // "http://localhost/Login:5173/"
+            "http://localhost/Log_in:5173/",
+            "http://localhost/Sign_up:5173/"
         ]
-
-        // origin:'*'
     })
-)
-
+    )
+    
+let serverNum = 3000;
 console.log("server is running at http://localhost:" + serverNum);
 mongoose.set("strictQuery",false);
 mongoose.connect(process.env.USERS).then(()=>{
@@ -28,56 +30,38 @@ mongoose.connect(process.env.USERS).then(()=>{
 }).catch((error)=>{
     console.log(error);
 });
-
 app.use(express.json());
+
+initializePassport(passport, email=>{
+    return Users.find({email: email})
+}, id=>{
+    return Users.find({id: id})
+}
+
+)
+app.use(flash())
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+// app.use(express.urlencoded({extended: false}))
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
 app.listen(serverNum)
 
 app.get("/", (req,res)=>{
-    res.send({"message":"yes"});
+    res.render('index')
+    // res.send({"message":"Server open"});
 })
 
 app.post("/", (req,res)=>{
-    res.send("post message");
-})
-
-app.get("/login", (req,res)=>{
-
-})
-
-app.post("/login", (req,res)=>{
-    console.log(req.body.email);
-    console.log(req.body.password);
-})
-
-app.get("/register",(req,res)=>{
-    
-})
-
-// app.post("/register", (req,res)=>{
-//     try{
-//         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-//         users.push({
-//             username: req.body.username,
-//             email: req.body.email,
-//             password: hashedPassword
-//         })
-//         res.redirect("/login");
-//     } catch {
-//         res.redirect("register");
-//     }
-// })
-
-app.get("/notes",(req,res)=>{
-    res.send("new note page")
-})
-
-app.post("/notes", (req,res)=>{
-    // console.log(req.body.name);
-    // console.log(req.body.notes);
-    // res.send(req.body.name);
-    res.send("test");
+    res.json({
+        message:"response"
+    })
 })
 

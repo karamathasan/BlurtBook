@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../Note.css"
+import "../components/styles/Note.css"
 
 export default function Creating_new_note(){
     const [topic, setTopic] = useState("");
@@ -25,6 +25,7 @@ export default function Creating_new_note(){
                 throw new Error("Network error");
             }
         }).then(text=>{
+
             console.log(text);
         })
 

@@ -1,6 +1,7 @@
 .textContainer{
     background-color: #282828;
     border-radius: 2.5em;
+    min-width: max-content;
 }
 
 .nav{

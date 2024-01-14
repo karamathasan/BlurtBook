@@ -45,5 +45,5 @@ input[type=text], textarea{
 }
 
 .noteDetails textarea{
-
+    resize: none;
 }

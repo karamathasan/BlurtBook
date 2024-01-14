@@ -9,8 +9,6 @@ export default function Note(prop: any){
             </ul>
         </div>
         <br></br>
-
-
         </>
     )
 }
