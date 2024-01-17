@@ -9,7 +9,7 @@ function LogIn(prop:any){
     if(prop.isLoggedIn == "false"){
         return(
             <li>
-                <a href ="Log_in"> Log In</a>
+                <a href ="/Log_in"> Log In</a>
             </li>
         )
     }
@@ -23,7 +23,21 @@ function LogIn(prop:any){
 }
 
 function Navbar(){
-    const [UserLoggedIn,UpdateUser] = useState("false");
+    const [UserLoggedIn, UpdateUser] = useState("false");
+    fetch("http://localhost:3000/users/auth",{
+        method: "get",
+        headers:{
+            "Content-Type":"application/json"
+        },
+    }).then(res=>{
+        return res.text()
+    }).then(data=>{
+        UpdateUser(data)
+        console.log(data)
+    })
+
+
+    // UpdateUser = 
     // UpdateUser("false");
 
     return(

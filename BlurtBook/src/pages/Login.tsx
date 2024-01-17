@@ -9,8 +9,11 @@ export default function Login(){
     const [password, changePassword] = useState("")
 
     const Login = ()=>{
-        // console.log(username);
-        // console.log(password);
+        if (username.length == 0 && password.length == 0){
+            console.log("invalid input! must input a username and password!")
+            return
+        }
+        
         fetch("http://localhost:3000/users/login", {
             method:"post",
             headers:{
@@ -22,9 +25,12 @@ export default function Login(){
             })
         }).then(res=>{
             if (res.ok){
-                console.log(res.text())
+                return res.text()
             }
             else throw new Error("Error occured");
+        }).then(data=>{
+            console.log(data)
+            // window.location.href = data
         })
 
     }
